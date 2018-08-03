@@ -2,6 +2,7 @@ package br.com.caelum.dashforum.service;
 
 import br.com.caelum.dashforum.modelo.DuvidaCategoria;
 import br.com.caelum.dashforum.modelo.Duvidas;
+import br.com.caelum.dashforum.modelo.DuvidasPorCategoria;
 import br.com.caelum.dashforum.util.DuvidaCategoriaFactory;
 
 import java.util.List;
@@ -22,12 +23,12 @@ public class DuvidaCategoriaService {
     }
 
 
-    public List<DuvidaCategoria> listaDeDuvidasPorCategoria() {
+    public DuvidasPorCategoria listaDeDuvidasPorCategoria() {
 
         Duvidas duvidas = buscadorDeDuvidas.buscaDuvidas();
 
         List<DuvidaCategoria> duvidaCategorias = factory.criaAtravesDas(duvidas);
 
-        return duvidaCategorias;
+        return new DuvidasPorCategoria(duvidaCategorias);
     }
 }

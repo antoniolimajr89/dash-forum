@@ -24,7 +24,7 @@
             </thead>
             <tbody>
 
-            <c:forEach items="${lista}" var="duvida">
+            <c:forEach items="${duvidasPorCategoria.duvidaCategorias}" var="duvida">
                 <tr>
                     <td class="text-center">${duvida.categoria}</td>
                     <td class="text-center">${duvida.duvidas.size()}</td>
@@ -32,6 +32,10 @@
                 </tr>
             </c:forEach>
 
+            <tr>
+                <td class="text-center">Total:</td>
+                <td class="text-center">${duvidasPorCategoria.total}</td>
+            </tr>
             </tbody>
 
         </table>

@@ -22,6 +22,10 @@ public class DuvidaCategoria {
         return status;
     }
 
+    public String getCategoria() {
+        return categoria;
+    }
+
     private DuvidaStatus statusDas(List<Duvida> duvidas) {
 
         int tamanho = duvidas.size();
@@ -33,9 +37,5 @@ public class DuvidaCategoria {
             return DuvidaStatus.SE_LIGA;
         else
             return DuvidaStatus.DEU_RUIM;
-    }
-
-    public String getCategoria() {
-        return categoria;
     }
 }

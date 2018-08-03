@@ -1,9 +1,7 @@
 package br.com.caelum.dashforum.controller;
 
-import br.com.caelum.dashforum.modelo.DuvidaCategoria;
+import br.com.caelum.dashforum.modelo.DuvidasPorCategoria;
 import br.com.caelum.dashforum.service.DuvidaCategoriaService;
-
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,11 +21,11 @@ public class DuvidaController {
 
     @GetMapping("/dashboard")
     public ModelAndView vaiParaDashboard() {
-        List<DuvidaCategoria> lista = service.listaDeDuvidasPorCategoria();
+        DuvidasPorCategoria duvidasPorCategoria = service.listaDeDuvidasPorCategoria();
 
         ModelAndView modelAndView = new ModelAndView("dashboard/principal");
 
-        modelAndView.addObject("lista", lista);
+        modelAndView.addObject("duvidasPorCategoria", duvidasPorCategoria);
 
         return modelAndView;
     }
