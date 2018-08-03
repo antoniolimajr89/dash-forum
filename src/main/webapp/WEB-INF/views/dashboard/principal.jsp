@@ -8,6 +8,27 @@
           integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 
     <title>Title</title>
+
+
+    <style>
+        .SUSSA {
+            background-color: chartreuse;
+        }
+
+        .TRANQUILO {
+            background-color: yellow;
+        }
+
+        .SE_LIGA {
+            background-color: orange;
+        }
+
+        .DEU_RUIM {
+            background-color: red;
+        }
+
+
+    </style>
 </head>
 <body>
 
@@ -19,16 +40,17 @@
             <tr class="alert alert-light">
                 <th class="text-center">Categoria</th>
                 <th class="text-center">Quantidade</th>
-                <th class="text-center">Status</th>
             </tr>
             </thead>
             <tbody>
 
             <c:forEach items="${duvidasPorCategoria.duvidaCategorias}" var="duvida">
                 <tr>
-                    <td class="text-center">${duvida.categoria}</td>
-                    <td class="text-center">${duvida.duvidas.size()}</td>
-                    <td class="text-center">${duvida.status}</td>
+                    <td class="text-center">
+                        <c:if test="${duvida.categoria.isEmpty()}">Off-topic</c:if>
+                        ${duvida.categoria}
+                    </td>
+                    <td class="text-center ${duvida.status}">${duvida.duvidas.size()}</td>
                 </tr>
             </c:forEach>
 
