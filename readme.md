@@ -1,4 +1,4 @@
-#Sobre o projeto
+# Sobre o projeto
 
 Esse projeto foi desenvolvido para ajudar os instrutores a ficar atentos em relação as dúvidas abertas no fórum da alura.
 
