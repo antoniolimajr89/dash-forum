@@ -1,20 +1,22 @@
 package br.com.caelum.dashforum.modelo;
 
+import br.com.caelum.dashforum.modelo.dto.DuvidaDTO;
+
 import java.util.List;
 
 public class DuvidaCategoria {
 
     private String categoria;
-    private List<Duvida> duvidas;
+    private List<DuvidaDTO> duvidas;
     private DuvidaStatus status;
 
-    public DuvidaCategoria(String categoria, List<Duvida> duvidas) {
+    public DuvidaCategoria(String categoria, List<DuvidaDTO> duvidas) {
         this.categoria = categoria;
         this.duvidas = duvidas;
         this.status = statusDas(duvidas);
     }
 
-    public List<Duvida> getDuvidas() {
+    public List<DuvidaDTO> getDuvidas() {
         return duvidas;
     }
 
@@ -26,7 +28,7 @@ public class DuvidaCategoria {
         return categoria;
     }
 
-    private DuvidaStatus statusDas(List<Duvida> duvidas) {
+    private DuvidaStatus statusDas(List<DuvidaDTO> duvidas) {
 
         int tamanho = duvidas.size();
         if (tamanho <= 5)

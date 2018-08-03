@@ -1,8 +1,8 @@
 package br.com.caelum.dashforum.util;
 
-import br.com.caelum.dashforum.modelo.Duvida;
+import br.com.caelum.dashforum.modelo.dto.DuvidaDTO;
 import br.com.caelum.dashforum.modelo.DuvidaCategoria;
-import br.com.caelum.dashforum.modelo.Duvidas;
+import br.com.caelum.dashforum.modelo.dto.ListaDeDuvidasDTO;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -13,17 +13,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class DuvidaCategoriaFactory {
 
-    public List<DuvidaCategoria> criaAtravesDas(Duvidas duvidas) {
+    public List<DuvidaCategoria> criaAtravesDas(ListaDeDuvidasDTO duvidas) {
 
-        List<Duvida> duvidasDaAlura = pegaTodasDuvidasOrdenadasPorCategoria(duvidas);
+        List<DuvidaDTO> duvidasDaAlura = pegaTodasDuvidasOrdenadasPorCategoria(duvidas);
 
         List<DuvidaCategoria> ordenadas = new ArrayList<>();
 
-        List<Duvida> duvidasPorCategoria = new ArrayList<>();
+        List<DuvidaDTO> duvidasPorCategoria = new ArrayList<>();
 
-        Duvida atual = duvidasDaAlura.get(0);
+        DuvidaDTO atual = duvidasDaAlura.get(0);
 
-        for (Duvida duvida : duvidasDaAlura) {
+        for (DuvidaDTO duvida : duvidasDaAlura) {
 
             if (categoriaMudou(atual, duvida)) {
 
@@ -44,19 +44,19 @@ public class DuvidaCategoriaFactory {
 
     }
 
-    private List<Duvida> pegaTodasDuvidasOrdenadasPorCategoria(Duvidas duvidas) {
-        List<Duvida> duvidasDaAlura = duvidas.getDuvidas();
+    private List<DuvidaDTO> pegaTodasDuvidasOrdenadasPorCategoria(ListaDeDuvidasDTO duvidas) {
+        List<DuvidaDTO> duvidasDaAlura = duvidas.getDuvidas();
 
-        duvidasDaAlura.sort(Comparator.comparing(Duvida::getCategoria));
+        duvidasDaAlura.sort(Comparator.comparing(DuvidaDTO::getCategoria));
         return duvidasDaAlura;
     }
 
 
-    private boolean categoriaMudou(Duvida atual, Duvida duvida) {
+    private boolean categoriaMudou(DuvidaDTO atual, DuvidaDTO duvida) {
         return !atual.getCategoria().equals(duvida.getCategoria());
     }
 
-    private void adicionaNasOrdenadasUmaNovaCategoria(List<DuvidaCategoria> ordenadas, List<Duvida> duvidasPorCategoria) {
+    private void adicionaNasOrdenadasUmaNovaCategoria(List<DuvidaCategoria> ordenadas, List<DuvidaDTO> duvidasPorCategoria) {
         String categoria = duvidasPorCategoria.get(0).getCategoria();
 
         DuvidaCategoria duvidaCategoria = new DuvidaCategoria(categoria, duvidasPorCategoria);

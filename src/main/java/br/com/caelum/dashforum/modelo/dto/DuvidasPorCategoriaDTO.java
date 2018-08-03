@@ -1,12 +1,14 @@
-package br.com.caelum.dashforum.modelo;
+package br.com.caelum.dashforum.modelo.dto;
+
+import br.com.caelum.dashforum.modelo.DuvidaCategoria;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class DuvidasPorCategoria {
+public class DuvidasPorCategoriaDTO {
     private List<DuvidaCategoria> duvidaCategorias;
 
-    public DuvidasPorCategoria(List<DuvidaCategoria> duvidaCategorias) {
+    public DuvidasPorCategoriaDTO(List<DuvidaCategoria> duvidaCategorias) {
 
         this.duvidaCategorias = duvidaCategorias;
     }

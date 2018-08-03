@@ -1,8 +1,8 @@
-package br.com.caelum.dashforum.modelo;
+package br.com.caelum.dashforum.modelo.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Duvida {
+public class DuvidaDTO {
 
     @JsonProperty("category")
     private String categoria;
