@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class DuvidaCategoriaFactory {
 
     public List<DuvidaCategoria> criaAtravesDas(Duvidas duvidas) {
